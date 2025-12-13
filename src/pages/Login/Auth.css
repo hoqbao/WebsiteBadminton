@@ -1,0 +1,113 @@
+/* src/Auth.css */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa 0%, #f4f6f8 100%);
+}
+
+.auth-container {
+  background: white;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  color: #27ae60;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Toggle Buttons (Tab chuyển đổi) */
+.auth-toggle {
+  display: flex;
+  background: #f0f0f0;
+  border-radius: 30px;
+  padding: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #777;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.toggle-btn.active {
+  background: #2ecc71;
+  color: white;
+  box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Quan trọng */
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2ecc71;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #219150;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.auth-footer a {
+  color: #27ae60;
+  text-decoration: none;
+  font-weight: bold;
+}
