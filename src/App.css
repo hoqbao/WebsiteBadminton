@@ -15,7 +15,7 @@ body {
   padding: 0;
 }
 
-/* Header */
+/* --- HEADER --- */
 .header {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -37,15 +37,18 @@ body {
   gap: 10px;
 }
 
+/* Menu Links (Màu xanh) */
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
-  color: #2ecc71;
-  font-weight: 500;
+  color: var(--primary-dark); /* Màu xanh đậm */
+  font-weight: 700;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
   color: var(--primary-color);
+  text-decoration: underline;
 }
 
 .btn-login {
@@ -54,9 +57,42 @@ body {
   padding: 8px 20px;
   border-radius: 20px;
   transition: 0.3s;
+  text-decoration: none !important; /* Bỏ gạch chân cho nút */
 }
 
-/* Hero Section */
+/* --- USER PROFILE (ẢNH + TÊN) --- */
+.user-profile {
+  display: flex;
+  align-items: center;    /* Căn giữa theo chiều dọc */
+  gap: 10px;              /* Khoảng cách giữa chữ và ảnh */
+  cursor: pointer;        /* Hiện bàn tay khi di chuột */
+  padding: 5px 12px;
+  border-radius: 30px;    /* Bo góc cả khung */
+  margin-left: 20px;
+  border: 1px solid transparent; /* Tránh giật layout khi hover */
+}
+
+.user-profile:hover {
+  background-color: #f1f2f6; /* Hiệu ứng nền xám nhẹ khi di chuột vào */
+  border-color: #e1e1e1;
+}
+
+.user-welcome {
+  font-weight: 600;       /* Chữ đậm */
+  color: #333;            /* Màu chữ tối */
+  font-size: 0.95rem;
+}
+
+.user-avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;     /* Tròn vo */
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  background-color: #eee;
+}
+
+/* --- HERO SECTION --- */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1000&auto=format&fit=crop');
   background-size: cover;
@@ -73,7 +109,77 @@ body {
 .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
 .hero p { font-size: 1.2rem; margin-bottom: 20px; }
 
-/* Court List */
+/* --- SEARCH SECTION --- */
+.search-section {
+  background: #fff;
+  padding: 30px;
+  margin-top: -50px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.search-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.search-input, .search-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus, .search-select:focus {
+  border-color: var(--primary-color);
+}
+
+.btn-search {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 46px;
+  flex: 0 0 auto;
+  transition: 0.3s;
+}
+
+.btn-search:hover {
+  background-color: var(--primary-dark);
+}
+
+.no-result {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+/* --- MAIN CONTENT & GRID --- */
 .container {
   max-width: 1200px;
   margin: 40px auto;
@@ -92,7 +198,7 @@ body {
   gap: 30px;
 }
 
-/* Court Card */
+/* --- COURT CARD --- */
 .court-card {
   background: var(--card-bg);
   border-radius: 10px;
@@ -155,7 +261,7 @@ body {
   background-color: var(--primary-dark);
 }
 
-/* Modal (Popup) */
+/* --- MODAL (Generic) --- */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -200,139 +306,5 @@ body {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-sizing: border-box; /* Quan trọng để không bị vỡ layout */
-}
-
-
-/* --- SEARCH BAR STYLE --- */
-.search-section {
-  background: #fff;
-  padding: 30px;
-  margin-top: -50px; /* Đẩy lên đè lên banner một chút cho đẹp */
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 10;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  align-items: end;
-}
-
-.search-group {
-  flex: 1;
-  min-width: 200px;
-}
-
-.search-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-.search-input, .search-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
-  outline: none;
   box-sizing: border-box;
-  transition: border-color 0.3s;
-}
-
-.search-input:focus, .search-select:focus {
-  border-color: var(--primary-color);
-}
-
-.btn-search {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  height: 46px; /* Căn bằng chiều cao input */
-  flex: 0 0 auto;
-  transition: 0.3s;
-}
-
-.btn-search:hover {
-  background-color: var(--primary-dark);
-}
-
-/* Hiển thị thông báo khi không tìm thấy */
-.no-result {
-  text-align: center;
-  padding: 40px;
-  color: #777;
-  font-size: 1.2rem;
-}
-
-
-/* Khu vực hiển thị user đã đăng nhập */
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  position: relative;
-}
-
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%; /* Làm tròn ảnh */
-  object-fit: cover;
-  border: 2px solid #2ecc71;
-}
-
-.user-name {
-  font-weight: 600;
-  color: #333;
-}
-
-.btn-logout {
-  font-size: 0.8rem;
-  color: #e74c3c;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* --- USER PROFILE (ẢNH + TÊN) --- */
-.user-profile {
-  display: flex;
-  align-items: center;    /* Căn giữa theo chiều dọc */
-  gap: 10px;              /* Khoảng cách giữa chữ và ảnh */
-  cursor: pointer;        /* Hiện bàn tay khi di chuột */
-  padding: 5px 10px;
-  border-radius: 30px;    /* Bo góc cả khung */
-  transition: background 0.3s;
-  margin-left: 20px;
-}
-
-.user-profile:hover {
-  background-color: #f0f0f0; /* Hiệu ứng nền xám nhẹ khi di chuột vào */
-}
-
-.user-welcome {
-  font-weight: 600;       /* Chữ đậm */
-  color: #333;            /* Màu chữ tối */
-  font-size: 0.95rem;
-}
-
-.user-avatar-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;     /* Tròn vo */
-  object-fit: cover;
-  border: 2px solid var(--primary-color);
 }
