@@ -103,21 +103,21 @@ const Home = () => {
         <div className="court-grid">
           {filteredCourts.map((court) => (
             <div key={court.id} className="court-card">
-              <Link to={`/court/${court.id}`}>
-                {/* --- SỬA ĐOẠN ẢNH NÀY --- */}
-                <img
-                  src={court.imageUrl}
-                  alt={court.name}
-                  className="card-img"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    // Link ảnh dự phòng "bất tử" (Ảnh sân cầu lông thật)
-                    e.target.src =
-                      "https://cdn.shopvnb.com/uploads/images/tin_tuc/bo-cau-long-1.webp";
-                  }}
-                />
-              </Link>{" "}
-              <div className="card-body">
+<Link to={`/court/${court.id}`}>
+    <img 
+        // Ưu tiên lấy ảnh từ DB, nếu không có thì dùng ảnh mẫu
+        src={court.imageUrl ? court.imageUrl : "https://cdn.shopvnb.com/uploads/images/tin_tuc/bo-cau-long-1.webp"} 
+        
+        alt={court.name} 
+        className="card-img"
+        
+        // Kỹ thuật thay thế ảnh lỗi (QUAN TRỌNG)
+        onError={(e) => {
+            e.target.onerror = null; // Chặn lặp vô hạn
+            e.target.src = "https://cdn.shopvnb.com/uploads/images/tin_tuc/bo-cau-long-1.webp"; // Ảnh thay thế xịn xò
+        }}
+    />
+</Link>              <div className="card-body">
                 <h3 className="court-name">{court.name}</h3>
                 <div className="court-info">📍 {court.address}</div>
                 <div className="price">
